@@ -317,14 +317,91 @@ if st.session_state.lang is None:
         i += 1
     st.stop()
 
-# ================== Üstte Dil Değiştirici (opsiyonel) ==================
 with st.sidebar:
-    new_lang = st.selectbox("🌐 Language / Dil", list(LANG_FLAGS.keys()),
+    # --- Dil seçimi (önceden var olan kodun) ---
+    new_lang = st.selectbox("🌐 Dil / Language", list(LANG_FLAGS.keys()),
                             index=list(LANG_FLAGS.keys()).index(st.session_state.lang),
                             format_func=lambda x: LANG_FLAGS[x])
     if new_lang != st.session_state.lang:
         st.session_state.lang = new_lang
         st.rerun()
+
+    # --- Footer: ikonlar ---
+    st.markdown("---")
+    label = T("footer_contact")
+
+    footer_sidebar = f"""
+    <div style="text-align:center; opacity:.9; display:flex; flex-direction:column;
+                align-items:center; justify-content:center; gap:12px; padding:8px 0 16px;">
+        <span style="font-weight:600;">{label}</span>
+        <div style="display:flex; gap:14px; justify-content:center; align-items:center;">
+
+            <!-- Mail -->
+            <a href="mailto:info@sinankeskin.com.tr" target="_blank" rel="noopener"
+               style="color:inherit; text-decoration:none;" title="E-posta">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                     viewBox="0 0 24 24" fill="currentColor" style="vertical-align:middle;">
+                    <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6
+                             c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
+                </svg>
+            </a>
+
+            <!-- GitHub -->
+            <a href="https://github.com/sinan-keskin" target="_blank" rel="noopener"
+               style="color:inherit; text-decoration:none;" title="GitHub">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                     viewBox="0 0 24 24" fill="currentColor" style="vertical-align:middle;">
+                    <path d="M12 .5C5.65.5.5 5.65.5 12a11.5 11.5 0 0 0 7.84 10.93c.57.1.77-.25.77-.55v-2.02
+                             c-3.19.69-3.87-1.37-3.87-1.37-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7
+                             1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.68 1.24 3.34.95.1-.74.4-1.24.72-1.52
+                             -2.55-.29-5.23-1.28-5.23-5.69 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.47.11-3.06
+                             0 0 .96-.31 3.14 1.18a10.9 10.9 0 0 1 5.72 0c2.18-1.49 3.14-1.18 3.14-1.18.62
+                             1.59.23 2.77.11 3.06.74.81 1.18 1.83 1.18 3.09 0 4.42-2.69 5.39-5.25 5.67.41.35
+                             .78 1.03.78 2.08v3.08c0 .3.2.65.78.54A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5
+                             12 .5Z"/>
+                </svg>
+            </a>
+
+            <!-- Instagram -->
+            <a href="https://instagram.com/sinankeeeee" target="_blank" rel="noopener"
+               style="color:inherit; text-decoration:none;" title="Instagram">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                     viewBox="0 0 24 24" fill="currentColor" style="vertical-align:middle;">
+                    <path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7
+                             c0-2.76-2.24-5-5-5H7zm10 2c1.65 0 3 1.35 3 3v10c0 1.65-1.35 3-3 3H7c-1.65 0-3
+                             -1.35-3-3V7c0-1.65 1.35-3 3-3h10zm-5 3a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3
+                             3 0 1 1 0 6 3 3 0 0 1 0-6zm4.8-.9a1.1 1.1 0 1 0 0-2.2 1.1 1.1 0 0 0 0 2.2z"/>
+                </svg>
+            </a>
+
+            <!-- Telegram -->
+            <a href="https://t.me/sinankeeeee" target="_blank" rel="noopener"
+               style="color:inherit; text-decoration:none;" title="Telegram">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                     viewBox="0 0 24 24" fill="currentColor" style="vertical-align:middle;">
+                    <path d="M9.04 15.81 8.8 19.34c.47 0 .68-.2.93-.44l2.24-2.13 4.65 3.38
+                             c.85.47 1.47.22 1.7-.79l3.09-14.38c.28-1.3-.46-1.8-1.3-1.49L2.4 9.67c-1.27.49
+                             -1.26 1.18-.22 1.49l4.47 1.4 10.38-6.56c.49-.31.94-.14.57.2L9.04 15.81z"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+
+    <style>
+        [data-testid="stSidebar"] svg {{
+            transition: transform .15s ease, color .15s ease;
+        }}
+        [data-testid="stSidebar"] a:hover svg {{
+            transform: scale(1.15);
+        }}
+        [data-testid="stSidebar"] a[title="E-posta"]:hover svg {{ color: #1e90ff; }}
+        [data-testid="stSidebar"] a[title="GitHub"]:hover svg {{ color: #000; }}
+        [data-testid="stSidebar"] a[title="Instagram"]:hover svg {{ color: #E4405F; }}
+        [data-testid="stSidebar"] a[title="Telegram"]:hover svg {{ color: #229ED9; }}
+    </style>
+    """
+    st.markdown(footer_sidebar, unsafe_allow_html=True)
+
 
 
 # ================== Ortak Utils ==================
