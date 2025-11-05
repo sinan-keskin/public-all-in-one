@@ -392,12 +392,12 @@ with st.sidebar:
         <div class="footer-label">{T("footer_contact")}</div>
         <div class="icon-row">
 
-          <a class="mail" href="mailto:info@sinankeskin.com.tr" target="_blank" title="E-posta">
+         | <a class="mail" href="mailto:info@sinankeskin.com.tr" target="_blank" title="E-posta">
             <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16
              c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
           </a>
 
-          <a class="github" href="https://github.com/sinan-keskin" target="_blank" title="GitHub">
+         | <a class="github" href="https://github.com/sinan-keskin" target="_blank" title="GitHub">
             <svg viewBox="0 0 24 24"><path d="M12 .5C5.65.5.5 5.65.5 12a11.5 11.5 0 0 0
              7.84 10.93c.57.1.77-.25.77-.55v-2.02c-3.19.69-3.87-1.37-3.87-1.37-.52-1.33-1.28-1.68-1.28-1.68
              -1.04-.71.08-.7.08-.7 1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.68 1.24 3.34.95.1-.74.4-1.24.72-1.52
@@ -407,18 +407,18 @@ with st.sidebar:
              11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
           </a>
 
-          <a class="instagram" href="https://instagram.com/sinankeeeee" target="_blank" title="Instagram">
+         | <a class="instagram" href="https://instagram.com/sinankeeeee" target="_blank" title="Instagram">
             <svg viewBox="0 0 24 24"><path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10
              c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2c1.65 0 3 1.35 3 3v10c0 1.65-1.35 3-3 3H7
              c-1.65 0-3-1.35-3-3V7c0-1.65 1.35-3 3-3h10zm-5 3a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1
              0 6 3 3 0 0 1 0-6zm4.8-.9a1.1 1.1 0 1 0 0-2.2 1.1 1.1 0 0 0 0 2.2z"/></svg>
           </a>
 
-          <a class="telegram" href="https://t.me/sinankeeeee" target="_blank" title="Telegram">
+         | <a class="telegram" href="https://t.me/sinankeeeee" target="_blank" title="Telegram">
             <svg viewBox="0 0 24 24"><path d="M9.04 15.81 8.8 19.34c.47 0 .68-.2.93-.44l2.24-2.13
              4.65 3.38c.85.47 1.47.22 1.7-.79l3.09-14.38c.28-1.3-.46-1.8-1.3-1.49L2.4 9.67c-1.27.49-1.26
              1.18-.22 1.49l4.47 1.4 10.38-6.56c.49-.31.94-.14.57.2L9.04 15.81z"/></svg>
-          </a>
+          </a> |
         </div>
       </div>
 
