@@ -285,15 +285,144 @@ I18N = {
 
         "footer_contact": "Для ошибок и предложений",
     },
+    "de" = {
+    "page_title": "Multi Tools (SteamID • QR • Bilder)",
+    "lang_label": "Sprache",
+    "tabs_titles": ["SteamID64 Finder", "QR-Code Generator", "Bild-Downloader"],
+
+    "steam_title": "🎮 SteamID Finder",
+    "steam_caption": "Details per Profillink, Vanity-Name oder SteamID64 abrufen.",
+    "steam_input": "Profil-URL, Vanity-Name oder SteamID64",
+    "steam_ph": "z. B.: https://steamcommunity.com/id/gaben | gaben | 7656...",
+    "steam_btn": "Suchen",
+    "steam_found": "Gefunden!",
+    "steam_warn_api": "⚠️ Bitte `STEAM_API_KEY` als Umgebungsvariable setzen.",
+    "steam_display": "Anzeigename",
+    "steam_username": "Benutzername",
+    "steam_sid64": "SteamID64",
+    "steam_level": "Level",
+    "copy": "Kopieren",
+    "copied": "Kopiert!",
+    "copy_failed": "Kopieren fehlgeschlagen: ",
+
+    "qr_title": "🔗 QR-Code aus URL erstellen",
+    "qr_caption": "Erzeuge einen QR-Code für die eingegebene URL.",
+    "qr_input": "URL",
+    "qr_ph": "https://example.com",
+    "qr_btn": "QR erzeugen",
+    "qr_warn": "Bitte zuerst eine URL eingeben.",
+    "qr_error": "Es ist ein Fehler aufgetreten: ",
+    "qr_download": "⤓ QR herunterladen",
+    "qr_preview": "🔍 Generierter QR-Code",
+
+    "ps_title": "📥 Bild-Downloader (ZIP)",
+    "ps_caption": "Links einfügen und Bilder als ZIP herunterladen.",
+    "ps_area": "Bild-URLs zeilenweise einfügen:",
+    "ps_btn": "ZIP erstellen",
+    "ps_need": "Bitte mindestens eine URL eingeben.",
+    "ps_ready": "{} Bild(er) erkannt. ZIP ist bereit.",
+    "ps_dl": "ZIP herunterladen",
+    "ps_errorlog": "error_log.txt",
+    "footer_tip": "Die Symbole unten verlinken auf beliebte Bild-Dienste.",
+
+    "footer_contact": "Für Fehler & Feedback",
+},
+"fr" = {
+    "page_title": "Multi Tools (SteamID • QR • Images)",
+    "lang_label": "Langue",
+    "tabs_titles": ["Chercheur SteamID64", "Générateur de QR", "Téléchargeur d’images"],
+
+    "steam_title": "🎮 Chercheur de SteamID",
+    "steam_caption": "Récupérez des infos via lien de profil, pseudo vanity ou SteamID64.",
+    "steam_input": "URL du profil, Pseudo (vanity) ou SteamID64",
+    "steam_ph": "ex. : https://steamcommunity.com/id/gaben | gaben | 7656...",
+    "steam_btn": "Rechercher",
+    "steam_found": "Trouvé !",
+    "steam_warn_api": "⚠️ Définissez `STEAM_API_KEY` en variable d’environnement.",
+    "steam_display": "Nom affiché",
+    "steam_username": "Nom d’utilisateur",
+    "steam_sid64": "SteamID64",
+    "steam_level": "Niveau",
+    "copy": "Copier",
+    "copied": "Copié !",
+    "copy_failed": "Échec de la copie : ",
+
+    "qr_title": "🔗 Créer un QR à partir d’une URL",
+    "qr_caption": "Générez un QR pour l’URL saisie.",
+    "qr_input": "URL",
+    "qr_ph": "https://example.com",
+    "qr_btn": "Générer",
+    "qr_warn": "Veuillez d’abord saisir une URL.",
+    "qr_error": "Une erreur est survenue : ",
+    "qr_download": "⤓ Télécharger le QR",
+    "qr_preview": "🔍 QR généré",
+
+    "ps_title": "📥 Téléchargeur d’images (ZIP)",
+    "ps_caption": "Collez des liens et téléchargez les images en ZIP.",
+    "ps_area": "Collez des URLs d’images, une par ligne :",
+    "ps_btn": "Créer le ZIP",
+    "ps_need": "Saisissez au moins une URL.",
+    "ps_ready": "{} image(s) détectée(s). ZIP prêt.",
+    "ps_dl": "Télécharger le ZIP",
+    "ps_errorlog": "error_log.txt",
+    "footer_tip": "Les icônes ci-dessous mènent à des services d’images populaires.",
+
+    "footer_contact": "Pour bugs & retours",
+},
+"ar" = {
+    "page_title": "أدوات متعددة (SteamID • رمز QR • صور)",
+    "lang_label": "اللغة",
+    "tabs_titles": ["البحث عن SteamID64", "مولّد رمز QR", "حافظ الصور"],
+
+    "steam_title": "🎮 البحث عن SteamID",
+    "steam_caption": "اجلب التفاصيل عبر رابط الملف، اسم المستخدم (vanity) أو SteamID64.",
+    "steam_input": "رابط الملف الشخصي أو اسم المستخدم (vanity) أو SteamID64",
+    "steam_ph": "مثال: https://steamcommunity.com/id/gaben | gaben | 7656...",
+    "steam_btn": "بحث",
+    "steam_found": "تم العثور!",
+    "steam_warn_api": "⚠️ يرجى ضبط `STEAM_API_KEY` كمتغير بيئة.",
+    "steam_display": "الاسم الظاهر",
+    "steam_username": "اسم المستخدم",
+    "steam_sid64": "SteamID64",
+    "steam_level": "المستوى",
+    "copy": "نسخ",
+    "copied": "تم النسخ!",
+    "copy_failed": "فشل النسخ: ",
+
+    "qr_title": "🔗 إنشاء رمز QR من رابط",
+    "qr_caption": "أنشئ رمز QR للرابط الذي تُدخله.",
+    "qr_input": "الرابط",
+    "qr_ph": "https://example.com",
+    "qr_btn": "إنشاء",
+    "qr_warn": "يرجى إدخال رابط أولًا.",
+    "qr_error": "حدث خطأ: ",
+    "qr_download": "⤓ تنزيل رمز QR",
+    "qr_preview": "🔍 رمز QR المُنشأ",
+
+    "ps_title": "📥 تنزيل الصور (ZIP)",
+    "ps_caption": "ألصِق الروابط ونزّل الصور كملف ZIP.",
+    "ps_area": "ألصِق روابط الصور كلٌ في سطر:",
+    "ps_btn": "إنشاء ZIP",
+    "ps_need": "أدخل رابطًا واحدًا على الأقل.",
+    "ps_ready": "تم اكتشاف {} صورة. الملف جاهز.",
+    "ps_dl": "تنزيل ZIP",
+    "ps_errorlog": "error_log.txt",
+    "footer_tip": "الرموز أدناه تؤدي إلى خدمات صور شائعة.",
+
+    "footer_contact": "للأخطاء والملاحظات",
+},
 }
 
 LANG_FLAGS = {
-    "tr": "🇹🇷 Türkçe",
-    "az": "🇦🇿 Azərbaycan",
-    "en": "🇺🇸 English",
-    "pt_BR": "🇧🇷 Português (BR)",
-    "es": "🇪🇸 Español",
-    "ru": "🇷🇺 Русский",
+    "tr":    "🇹🇷 Türkçe",
+    "az":    "🇦🇿 Azərbaycan",
+    "en": "🇺🇸 English(US)",
+    "pt_BR": "🇧🇷 Português(BR)",
+    "es":    "🇪🇸 Español",
+    "ru":    "🇷🇺 Русский",
+    "de":    "🇩🇪 Deutsch",
+    "fr":    "🇫🇷 Français",
+    "ar":    "🇸🇦 العربية",
 }
 
 def T(key: str) -> str:
@@ -320,8 +449,8 @@ if st.session_state.lang is None:
 import streamlit.components.v1 as components
 
 with st.sidebar:
-    # --- Dil seçici (önceden var) ---
-    new_lang = st.selectbox("🌐 Dil / Language", list(LANG_FLAGS.keys()),
+    new_lang = st.selectbox("🌐 " + I18N[st.session_state.lang]["lang_label"],
+                            list(LANG_FLAGS.keys()),
                             index=list(LANG_FLAGS.keys()).index(st.session_state.lang),
                             format_func=lambda x: LANG_FLAGS[x])
     if new_lang != st.session_state.lang:
@@ -438,6 +567,12 @@ with st.sidebar:
 
 
 
+# RTL (Arapça) desteği
+if st.session_state.lang == "ar":
+    st.markdown(
+        "<style> .stApp, body { direction: rtl; } .row, .wrap { direction: rtl; } </style>",
+        unsafe_allow_html=True
+    )
 
 # ================== Ortak Utils ==================
 def html_escape(s: str) -> str:
