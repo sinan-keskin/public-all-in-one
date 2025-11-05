@@ -384,20 +384,28 @@ def guess_vanity(input_text: str, player: dict | None) -> str | None:
     return None
 
 def copy_row(label: str, value: str, copyable: bool, key: str):
-    js_text = _js_json(value if value else "")
+    js_text = json.dumps(value if value else "")
     html_text = html_escape(value if value else "—")
-    copy_title = _js_json(T("copy"))
-    copied_msg = _js_json(T("copied"))
-    copy_failed_msg = _js_json(T("copy_failed"))
+    copy_title = json.dumps(T("copy"))
+    copied_msg = json.dumps(T("copied"))
+    copy_failed_msg = json.dumps(T("copy_failed"))
 
-    button_html = (f"""
-      <button class='copy-btn' title={copy_title} aria-label={copy_title}>
-        <svg viewBox='0 0 24 24'><path d='M16 1H4c-1.1 0-2 .9-2 2v12h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14
-        c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z'/></svg>
-      </button>
-    """ if copyable else "")
+    # buton HTML'i
+    button_html = (
+        """
+        <button class='copy-btn' title={copy_title} aria-label={copy_title}>
+          <svg viewBox='0 0 24 24'>
+            <path d='M16 1H4c-1.1 0-2 .9-2 2v12h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14
+            c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z'/>
+          </svg>
+        </button>
+        """.format(copy_title=copy_title)
+        if copyable
+        else ""
+    )
 
-    html = f"""
+    # tüm HTML bloğu
+    html = """
 <!DOCTYPE html>
 <html>
 <head>
@@ -451,11 +459,19 @@ def copy_row(label: str, value: str, copyable: bool, key: str):
       }}
     }});
   }}
-})();
+}})();
 </script>
 </body>
 </html>
-    """
+    """.format(
+        label=label,
+        html_text=html_text,
+        button_html=button_html,
+        js_text=js_text,
+        copied_msg=copied_msg,
+        copy_failed_msg=copy_failed_msg,
+    )
+
     components.html(html, height=50, scrolling=False)
 
 # ================== -------- Photo Saver -------- ==================
