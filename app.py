@@ -25,7 +25,7 @@ except Exception:
     HAVE_PIL = False
 
 # ================== App Config ==================
-st.set_page_config(page_title="Multi Tools", page_icon="🧰", layout="centered")
+st.set_page_config(page_title="Multi Tools", page_icon="🧰", layout="centered", anchor=False)
 
 # ================== i18n ==================
 I18N = {
@@ -419,7 +419,12 @@ if "lang" not in st.session_state:
 
 if st.session_state.lang is None:
     st.title("")
-    st.markdown("### 🌍 Select Your Language / Dil Seçin")
+    st.markdown("""<style>
+/* Başlıkların yanındaki anchor (zincir) ikonunu gizle */
+[data-testid="stHeading"] a {
+  display: none !important;
+}
+</style>### 🌍 Select Your Language / Dil Seçin""")
     cols = st.columns(3)
     i = 0
     for code, label in LANG_FLAGS.items():
