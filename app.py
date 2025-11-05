@@ -6,7 +6,7 @@ from urllib.parse import urlparse
 import streamlit as st
 import streamlit.components.v1 as components
 
-# ------- Optional deps (used in Photo Saver) -------
+# ------- Optional deps (Photo Saver) -------
 try:
     import cloudscraper
     from bs4 import BeautifulSoup
@@ -16,7 +16,7 @@ except Exception:
     HAVE_SCRAPER = False
     scraper = requests  # graceful fallback
 
-# ------- Optional deps (used in QR) -------
+# ------- Optional deps (QR) -------
 try:
     from PIL import Image
     from io import BytesIO
@@ -24,15 +24,16 @@ try:
 except Exception:
     HAVE_PIL = False
 
-# ================== i18n ==================
-LANGS = ("tr", "az", "en", "pt_BR", "es", "ru")
-DEFAULT_LANG = "tr"
+# ================== App Config ==================
+st.set_page_config(page_title="🧰 Multi Tools", page_icon="🧰", layout="centered")
 
+# ================== i18n ==================
 I18N = {
     "tr": {
-        "page_title": "Multi Tools (SteamID • QR • Photo Saver)",
+        "page_title": "Multi Tools (SteamID • QR • Görsel)",
         "lang_label": "Dil",
-        "tabs": ["steamid-finder", "qr-code", "photo-saver"],
+        "tabs_titles": ["SteamID64 Bulucu", "Karekod Oluşturucu", "Görsel Kaydedici"],
+
         # Steam
         "steam_title": "🎮 SteamID Bulucu",
         "steam_caption": "Profil linki, kullanıcı adı (vanity) veya SteamID64 ile bilgileri getirir.",
@@ -48,6 +49,7 @@ I18N = {
         "copy": "Kopyala",
         "copied": "Kopyalandı!",
         "copy_failed": "Kopyalama başarısız: ",
+
         # QR
         "qr_title": "🔗 URL'den QR Kod Oluştur",
         "qr_caption": "Girdiğiniz URL için anında QR kodu üretin.",
@@ -58,6 +60,7 @@ I18N = {
         "qr_error": "Bir hata oluştu: ",
         "qr_download": "⤓ QR Kodunu İndir",
         "qr_preview": "🔍 Oluşan QR Kodu",
+
         # Photo Saver
         "ps_title": "📥 Toplu Görsel İndirici",
         "ps_caption": "Bağlantıları yapıştırın, resimleri ZIP olarak indirin.",
@@ -68,11 +71,15 @@ I18N = {
         "ps_dl": "ZIP dosyasını indir",
         "ps_errorlog": "error_log.txt",
         "footer_tip": "Alt kısımdaki simgeler popüler görsel servislerine gider.",
+
+        # Footer
+        "footer_contact": "Hata & Öneriler için",
     },
     "az": {
-        "page_title": "Multi Tools (SteamID • QR • Photo Saver)",
+        "page_title": "Multi Tools (SteamID • QR • Şəkil)",
         "lang_label": "Dil",
-        "tabs": ["steamid-finder", "qr-code", "photo-saver"],
+        "tabs_titles": ["SteamID64 Axtarıcı", "QR Kod Yaradıcı", "Şəkil Yükləyici"],
+
         "steam_title": "🎮 SteamID Axtarışı",
         "steam_caption": "Profil linki, istifadəçi adı (vanity) və ya SteamID64 ilə məlumat gətirir.",
         "steam_input": "Profil URL-i, İstifadəçi Adı (vanity) və ya SteamID64",
@@ -87,6 +94,7 @@ I18N = {
         "copy": "Kopyala",
         "copied": "Kopyalandı!",
         "copy_failed": "Kopyalama alınmadı: ",
+
         "qr_title": "🔗 URL-dən QR Kod Yarat",
         "qr_caption": "Daxil etdiyiniz URL üçün dərhal QR yaradın.",
         "qr_input": "URL",
@@ -96,6 +104,7 @@ I18N = {
         "qr_error": "Xəta baş verdi: ",
         "qr_download": "⤓ QR Kodunu Endir",
         "qr_preview": "🔍 Yaradılan QR Kod",
+
         "ps_title": "📥 Kütləvi Şəkil Endirici",
         "ps_caption": "Linkləri yapışdırın, şəkilləri ZIP kimi endirin.",
         "ps_area": "Şəkil URL-lərini alt-alta yapışdırın:",
@@ -105,11 +114,14 @@ I18N = {
         "ps_dl": "ZIP faylını endir",
         "ps_errorlog": "error_log.txt",
         "footer_tip": "Aşağıdakı ikonlar məşhur şəkil servislərinə aparır.",
+
+        "footer_contact": "Xəta və təkliflər üçün",
     },
     "en": {
-        "page_title": "Multi Tools (SteamID • QR • Photo Saver)",
+        "page_title": "Multi Tools (SteamID • QR • Images)",
         "lang_label": "Language",
-        "tabs": ["steamid-finder", "qr-code", "photo-saver"],
+        "tabs_titles": ["SteamID64 Finder", "QR Code Generator", "Photo Saver"],
+
         "steam_title": "🎮 SteamID Finder",
         "steam_caption": "Fetch details by profile link, vanity username, or SteamID64.",
         "steam_input": "Profile URL, Vanity Username, or SteamID64",
@@ -124,6 +136,7 @@ I18N = {
         "copy": "Copy",
         "copied": "Copied!",
         "copy_failed": "Copy failed: ",
+
         "qr_title": "🔗 Create QR Code from URL",
         "qr_caption": "Generate a QR code for the URL you enter.",
         "qr_input": "URL",
@@ -133,6 +146,7 @@ I18N = {
         "qr_error": "An error occurred: ",
         "qr_download": "⤓ Download QR",
         "qr_preview": "🔍 Generated QR Code",
+
         "ps_title": "📥 Bulk Image Downloader",
         "ps_caption": "Paste links and download images as a ZIP.",
         "ps_area": "Paste image URLs, one per line:",
@@ -142,11 +156,14 @@ I18N = {
         "ps_dl": "Download ZIP",
         "ps_errorlog": "error_log.txt",
         "footer_tip": "Icons below link to popular image services.",
+
+        "footer_contact": "For bugs & feedback",
     },
     "pt_BR": {
-        "page_title": "Multi Tools (SteamID • QR • Photo Saver)",
+        "page_title": "Multi Tools (SteamID • QR • Imagens)",
         "lang_label": "Idioma",
-        "tabs": ["steamid-finder", "qr-code", "photo-saver"],
+        "tabs_titles": ["Localizador de SteamID64", "Gerador de QR Code", "Salvador de Imagens"],
+
         "steam_title": "🎮 Localizador de SteamID",
         "steam_caption": "Obtenha detalhes pelo link do perfil, nome vanity ou SteamID64.",
         "steam_input": "URL do Perfil, Nome (vanity) ou SteamID64",
@@ -161,6 +178,7 @@ I18N = {
         "copy": "Copiar",
         "copied": "Copiado!",
         "copy_failed": "Falha ao copiar: ",
+
         "qr_title": "🔗 Criar QR Code de URL",
         "qr_caption": "Gere um QR code para a URL informada.",
         "qr_input": "URL",
@@ -170,6 +188,7 @@ I18N = {
         "qr_error": "Ocorreu um erro: ",
         "qr_download": "⤓ Baixar QR",
         "qr_preview": "🔍 QR Code Gerado",
+
         "ps_title": "📥 Baixador de Imagens em Lote",
         "ps_caption": "Cole links e baixe imagens em um ZIP.",
         "ps_area": "Cole URLs de imagens, uma por linha:",
@@ -179,11 +198,14 @@ I18N = {
         "ps_dl": "Baixar ZIP",
         "ps_errorlog": "error_log.txt",
         "footer_tip": "Ícones abaixo levam a serviços populares de imagens.",
+
+        "footer_contact": "Para bugs e sugestões",
     },
     "es": {
-        "page_title": "Multi Tools (SteamID • QR • Photo Saver)",
+        "page_title": "Multi Tools (SteamID • QR • Imágenes)",
         "lang_label": "Idioma",
-        "tabs": ["steamid-finder", "qr-code", "photo-saver"],
+        "tabs_titles": ["Buscador de SteamID64", "Generador de Código QR", "Guardador de Imágenes"],
+
         "steam_title": "🎮 Buscador de SteamID",
         "steam_caption": "Obtén detalles por enlace de perfil, nombre vanity o SteamID64.",
         "steam_input": "URL del Perfil, Nombre (vanity) o SteamID64",
@@ -198,6 +220,7 @@ I18N = {
         "copy": "Copiar",
         "copied": "¡Copiado!",
         "copy_failed": "Error al copiar: ",
+
         "qr_title": "🔗 Crear código QR desde URL",
         "qr_caption": "Genera un código QR para la URL ingresada.",
         "qr_input": "URL",
@@ -207,6 +230,7 @@ I18N = {
         "qr_error": "Ocurrió un error: ",
         "qr_download": "⤓ Descargar QR",
         "qr_preview": "🔍 Código QR Generado",
+
         "ps_title": "📥 Descargador Masivo de Imágenes",
         "ps_caption": "Pega enlaces y descarga las imágenes en un ZIP.",
         "ps_area": "Pega las URLs de imágenes, una por línea:",
@@ -216,11 +240,14 @@ I18N = {
         "ps_dl": "Descargar ZIP",
         "ps_errorlog": "error_log.txt",
         "footer_tip": "Los íconos abajo enlazan a servicios populares de imágenes.",
+
+        "footer_contact": "Para errores y sugerencias",
     },
     "ru": {
-        "page_title": "Multi Tools (SteamID • QR • Photo Saver)",
+        "page_title": "Multi Tools (SteamID • QR • Изображения)",
         "lang_label": "Язык",
-        "tabs": ["steamid-finder", "qr-code", "photo-saver"],
+        "tabs_titles": ["Поиск SteamID64", "Генератор QR-кодов", "Сохранение изображений"],
+
         "steam_title": "🎮 Поиск SteamID",
         "steam_caption": "Получите данные по ссылке профиля, имени (vanity) или SteamID64.",
         "steam_input": "URL профиля, Имя (vanity) или SteamID64",
@@ -235,6 +262,7 @@ I18N = {
         "copy": "Копировать",
         "copied": "Скопировано!",
         "copy_failed": "Ошибка копирования: ",
+
         "qr_title": "🔗 Создать QR-код из URL",
         "qr_caption": "Сгенерируйте QR-код для введённого URL.",
         "qr_input": "URL",
@@ -244,6 +272,7 @@ I18N = {
         "qr_error": "Произошла ошибка: ",
         "qr_download": "⤓ Скачать QR",
         "qr_preview": "🔍 Сгенерированный QR-код",
+
         "ps_title": "📥 Массовая загрузка изображений",
         "ps_caption": "Вставьте ссылки и скачайте изображения в ZIP.",
         "ps_area": "Вставьте URL изображений, по одному в строке:",
@@ -253,38 +282,61 @@ I18N = {
         "ps_dl": "Скачать ZIP",
         "ps_errorlog": "error_log.txt",
         "footer_tip": "Иконки ниже ведут на популярные сервисы изображений.",
+
+        "footer_contact": "Для ошибок и предложений",
     },
 }
 
+LANG_FLAGS = {
+    "tr": "🇹🇷 Türkçe",
+    "az": "🇦🇿 Azərbaycan",
+    "en": "🇬🇧 English",
+    "pt_BR": "🇧🇷 Português (BR)",
+    "es": "🇪🇸 Español",
+    "ru": "🇷🇺 Русский",
+}
+
 def T(key: str) -> str:
-    lang = st.session_state.get("lang", DEFAULT_LANG)
-    return I18N.get(lang, I18N[DEFAULT_LANG]).get(key, key)
+    lang = st.session_state.get("lang") or "tr"
+    return I18N.get(lang, I18N["tr"]).get(key, key)
 
-# ================== Streamlit Global ==================
-st.set_page_config(page_title=I18N[DEFAULT_LANG]["page_title"], page_icon="🧰", layout="centered")
+# ================== Dil Seçim Ekranı ==================
+if "lang" not in st.session_state:
+    st.session_state.lang = None
 
-# language selector (sticky)
-col1, col2 = st.columns([1, 3])
-with col1:
-    # keep selection in session
-    if "lang" not in st.session_state:
-        st.session_state.lang = DEFAULT_LANG
-    st.session_state.lang = st.selectbox(I18N[st.session_state.lang]["lang_label"], LANGS, index=LANGS.index(st.session_state.lang))
-with col2:
-    st.title("🧰 Multi Tools")
-    st.caption("SteamID Finder • QR Code • Photo Saver")
+if st.session_state.lang is None:
+    st.title("🌍 Select Your Language / Dil Seçin")
+    st.markdown("### Devam etmek için bir dil seçiniz 👇")
 
-# ================== --- Shared utils --- ==================
+    cols = st.columns(3)
+    i = 0
+    for code, label in LANG_FLAGS.items():
+        with cols[i % 3]:
+            if st.button(label, key=f"lang_{code}", use_container_width=True):
+                st.session_state.lang = code
+                st.rerun()
+        i += 1
+    st.stop()
+
+# ================== Üstte Dil Değiştirici (opsiyonel) ==================
+with st.sidebar:
+    new_lang = st.selectbox("🌐 Language / Dil", list(LANG_FLAGS.keys()),
+                            index=list(LANG_FLAGS.keys()).index(st.session_state.lang),
+                            format_func=lambda x: LANG_FLAGS[x])
+    if new_lang != st.session_state.lang:
+        st.session_state.lang = new_lang
+        st.rerun()
+
+# ================== Ortak Utils ==================
 def html_escape(s: str) -> str:
     return (s or "").replace("&","&amp;").replace("<","&lt;").replace(">","&gt;").replace('"',"&quot;")
 
 def _js_json(s: str) -> str:
     return json.dumps(s if s is not None else "")
 
-# ================== -------- Steam Finder -------- ==================
+# ================== Steam Finder Helpers ==================
 STEAM_API_KEY = os.getenv("STEAM_API_KEY")
 CDN_PREFIX = "https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/"
-
 STEAMID64_RE    = re.compile(r"^(7656\d{13})$")
 URL_PROFILES_RE = re.compile(r"https?://steamcommunity\.com/profiles/(7656\d{13})(?:/.*)?", re.I)
 URL_ID_RE       = re.compile(r"https?://steamcommunity\.com/id/([A-Za-z0-9\-_.]+)(?:/.*)?", re.I)
@@ -384,13 +436,13 @@ def guess_vanity(input_text: str, player: dict | None) -> str | None:
     return None
 
 def copy_row(label: str, value: str, copyable: bool, key: str):
+    """HTML/JS içinde { } kaçışlarını düzelten, f-stringsiz güvenli versiyon."""
     js_text = json.dumps(value if value else "")
     html_text = html_escape(value if value else "—")
     copy_title = json.dumps(T("copy"))
     copied_msg = json.dumps(T("copied"))
     copy_failed_msg = json.dumps(T("copy_failed"))
 
-    # buton HTML'i
     button_html = (
         """
         <button class='copy-btn' title={copy_title} aria-label={copy_title}>
@@ -400,11 +452,9 @@ def copy_row(label: str, value: str, copyable: bool, key: str):
           </svg>
         </button>
         """.format(copy_title=copy_title)
-        if copyable
-        else ""
+        if copyable else ""
     )
 
-    # tüm HTML bloğu
     html = """
 <!DOCTYPE html>
 <html>
@@ -474,7 +524,7 @@ def copy_row(label: str, value: str, copyable: bool, key: str):
 
     components.html(html, height=50, scrolling=False)
 
-# ================== -------- Photo Saver -------- ==================
+# ================== Photo Saver Helpers ==================
 HEADERS = {
     "User-Agent": (
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
@@ -485,12 +535,6 @@ HEADERS = {
 IMG_EXTS = (".jpg",".jpeg",".png",".gif",".webp",".bmp")
 
 def resolve_image_url(url: str) -> str:
-    """
-    • imgur.com page → og:image
-    • i.imgur.com raw link (if no ext, try via HEAD)
-    • if already has extension → return as-is
-    • other sites → og/twitter meta fallback
-    """
     parsed = urlparse(url)
     host = parsed.netloc.lower()
     path = parsed.path.lstrip("/")
@@ -501,8 +545,8 @@ def resolve_image_url(url: str) -> str:
         try:
             resp = scraper.get(url, headers={**HEADERS, "Referer": url}, timeout=10)
             resp.raise_for_status()
-            soup = BeautifulSoup(resp.text, "lxml") if HAVE_SCRAPER else None
-            if soup:
+            if HAVE_SCRAPER:
+                soup = BeautifulSoup(resp.text, "lxml")
                 m = soup.find("meta", property="og:image")
                 if m and m.get("content"):
                     img = m["content"]
@@ -518,14 +562,14 @@ def resolve_image_url(url: str) -> str:
             cand = url + e
             try:
                 h = scraper.head(cand, headers={**HEADERS, "Referer": url}, timeout=5)
-                ctype = h.headers.get("Content-Type","")
+                ctype = getattr(h, "headers", {}).get("Content-Type","")
                 if getattr(h, "status_code", None) == 200 and str(ctype).startswith("image/"):
                     return cand
             except Exception:
                 continue
         return url + ".jpg"
 
-    # already has image extension
+    # already has extension
     if ext.lower() in IMG_EXTS:
         return url
 
@@ -533,8 +577,8 @@ def resolve_image_url(url: str) -> str:
     try:
         resp = scraper.get(url, headers={**HEADERS, "Referer": url}, timeout=10)
         resp.raise_for_status()
-        soup = BeautifulSoup(resp.text, "lxml") if HAVE_SCRAPER else None
-        if soup:
+        if HAVE_SCRAPER:
+            soup = BeautifulSoup(resp.text, "lxml")
             for key, attr in (("property","og:image"), ("name","twitter:image")):
                 m = soup.find("meta", **{key:attr})
                 if m and m.get("content"):
@@ -566,12 +610,14 @@ def download_images_and_zip(urls: list[str]) -> bytes:
                     z.writestr(error_log_name, existing + err)
     return buf.getvalue()
 
-# ================== -------- UI (Tabs) -------- ==================
-tab_names = I18N[st.session_state.lang]["tabs"]
-tabs = st.tabs(tab_names)
+# ================== UI ==================
+st.title("🧰 Multi Tools")
+st.caption("SteamID Finder • QR Code • Photo Saver")
+
+tab1, tab2, tab3 = st.tabs(I18N[st.session_state.lang]["tabs_titles"])
 
 # ---------- TAB 1: SteamID Finder ----------
-with tabs[0]:
+with tab1:
     st.header(T("steam_title"))
     st.caption(T("steam_caption"))
     if not STEAM_API_KEY:
@@ -592,8 +638,7 @@ input, .stButton>button{ margin:0 auto; display:block; }
 """, unsafe_allow_html=True)
 
     s_inp = st.text_input(T("steam_input"), placeholder=T("steam_ph"))
-    go = st.button(T("steam_btn"))
-    if go and s_inp.strip():
+    if st.button(T("steam_btn")) and s_inp.strip():
         try:
             sid64 = resolve_input_to_steamid64(s_inp, STEAM_API_KEY)
             st.success(T("steam_found"))
@@ -608,21 +653,25 @@ input, .stButton>button{ margin:0 auto; display:block; }
             avatar_u, is_video = choose_avatar(player, items)
             frame_u  = choose_frame(items)
 
-            html = ['<div class="avatar-box">']
+            # avatar kutusu
+            html_parts = ['<div class="avatar-box">']
             if avatar_u:
                 if is_video:
-                    html.append(f'<video src="{avatar_u}" autoplay muted loop playsinline></video>')
+                    html_parts.append('<video src="{0}" autoplay muted loop playsinline></video>'.format(avatar_u))
                 else:
-                    html.append(f'<img src="{avatar_u}" alt="avatar">')
+                    html_parts.append('<img src="{0}" alt="avatar">'.format(avatar_u))
             else:
-                html.append('<div style="width:160px;height:160px;"></div>')
+                html_parts.append('<div style="width:160px;height:160px;"></div>')
             if frame_u:
-                html.append(f'<img class="frame" src="{frame_u}" alt="frame">')
-            html.append('</div>')
-            st.markdown("".join(html), unsafe_allow_html=True)
+                html_parts.append('<img class="frame" src="{0}" alt="frame">'.format(frame_u))
+            html_parts.append('</div>')
+            st.markdown("".join(html_parts), unsafe_allow_html=True)
 
             level_val = level if isinstance(level, int) else "—"
-            st.markdown(f"<div class='level'><span class='level-dot'></span>{T('steam_level')} {level_val}</div>", unsafe_allow_html=True)
+            st.markdown(
+                "<div class='level'><span class='level-dot'></span>{} {}</div>".format(T("steam_level"), level_val),
+                unsafe_allow_html=True
+            )
 
             copy_row(T("steam_display"), personaname, False, "display_name")
             copy_row(T("steam_username"), vanity, True, "vanity")
@@ -632,7 +681,7 @@ input, .stButton>button{ margin:0 auto; display:block; }
             st.error(str(e))
 
 # ---------- TAB 2: QR Code ----------
-with tabs[1]:
+with tab2:
     st.header(T("qr_title"))
     st.caption(T("qr_caption"))
 
@@ -642,7 +691,7 @@ with tabs[1]:
             st.warning(T("qr_warn"))
         else:
             try:
-                qr_api = f"https://api.qrserver.com/v1/create-qr-code/?size=300x300&data={url}"
+                qr_api = "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data={}".format(url)
                 resp = requests.get(qr_api, timeout=15)
                 resp.raise_for_status()
                 img_bytes = resp.content
@@ -661,11 +710,12 @@ with tabs[1]:
                 st.error(T("qr_error") + str(e))
 
 # ---------- TAB 3: Photo Saver ----------
-with tabs[2]:
+with tab3:
     st.header(T("ps_title"))
     st.caption(T("ps_caption"))
 
-    urls_input = st.text_area(T("ps_area"), height=200, placeholder="https://i.imgur.com/xxxx\nhttps://example.com/page-with-image")
+    urls_input = st.text_area(T("ps_area"), height=200,
+                              placeholder="https://i.imgur.com/xxxx\nhttps://example.com/page-with-image")
     urls = [u.strip() for u in urls_input.splitlines() if u.strip()]
 
     if st.button(T("ps_btn")):
@@ -674,7 +724,7 @@ with tabs[2]:
         else:
             zip_bytes = download_images_and_zip(urls)
             today = datetime.now().strftime("%d.%m.%Y")
-            filename = f"{today}.zip"
+            filename = "{}.zip".format(today)
             st.success(T("ps_ready").format(len(urls)))
             st.download_button(
                 label=T("ps_dl"),
@@ -685,7 +735,6 @@ with tabs[2]:
 
     st.divider()
     st.caption(T("footer_tip"))
-    # simple footer logos
     logos = [
         ("https://st.prntscr.com/2023/07/24/0635/img/icon_lightshot.png", "https://prnt.sc/"),
         ("https://simgbb.com/images/logo.png", "https://imgbb.com/"),
@@ -694,4 +743,13 @@ with tabs[2]:
     cols = st.columns(len(logos))
     for i, (logo, link) in enumerate(logos):
         with cols[i]:
-            st.markdown(f"<a href='{link}' target='_blank'><img src='{logo}' alt='logo' height='40'/></a>", unsafe_allow_html=True)
+            st.markdown("<a href='{0}' target='_blank'><img src='{1}' alt='logo' height='40'/></a>".format(link, logo),
+                        unsafe_allow_html=True)
+
+# ---------- Footer (global) ----------
+st.markdown("---")
+st.markdown(
+    "<div style='text-align:center; opacity:.9'>{}: <a href='mailto:info@sinankeskin.com.tr'>info@sinankeskin.com.tr</a></div>"
+    .format(T("footer_contact")),
+    unsafe_allow_html=True
+)
