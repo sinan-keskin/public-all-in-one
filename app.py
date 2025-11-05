@@ -885,7 +885,6 @@ with tab1:
     st.markdown("""
 <style>
 .stApp{ text-align:center; }
-input, .stButton>button{ margin:0 auto; display:block; }
 .avatar-box{ position:relative; width:160px; height:160px; overflow:hidden; border-radius:12px; margin:16px auto; }
 .avatar-box img,.avatar-box video{ width:160px; height:160px; object-fit:cover; border-radius:12px; }
 .avatar-box .frame{ position:absolute; top:0; left:0; width:160px; height:160px; pointer-events:none; }
