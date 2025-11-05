@@ -19,3 +19,13 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+---
+
+## Notlar & İyileştirmeler
+
+- Tema uyumlu CSS ve kopyalama düğmesi tüm dillerde çalışır.
+- `cloudscraper` mevcut değilse uygulama yine çalışır, fakat bazı sayfalardan görsel çözme kapasitesi sınırlı olabilir.
+- İstersen gerekli yerleri `.env` ile beslemek için `python-dotenv` hazır (örnek: `load_dotenv()` çağırabilirsiniz).
+
+Hazır! Bu 3 uygulamayı tek repoda, belirtilen **tab sırası** ve **6 dil** desteğiyle kullanabilirsiniz.
