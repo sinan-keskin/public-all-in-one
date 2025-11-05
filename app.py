@@ -5,6 +5,7 @@ from urllib.parse import urlparse
 
 import streamlit as st
 import streamlit.components.v1 as components
+
 st.markdown("<style>[data-testid='stHeading'] a {display: none !important;}</style>", unsafe_allow_html=True)
 
 # ------- Optional deps (Photo Saver) -------
@@ -419,8 +420,7 @@ if "lang" not in st.session_state:
     st.session_state.lang = None
 
 if st.session_state.lang is None:
-    st.title("")
-    st.markdown("### 🌍 Select Your Language / Dil Seçin")
+    st.title("🌍 Select Your Language / Dil Seçin")
     cols = st.columns(3)
     i = 0
     for code, label in LANG_FLAGS.items():
