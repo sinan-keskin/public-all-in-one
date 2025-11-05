@@ -749,18 +749,19 @@ with tab3:
 st.markdown("---")
 st.markdown(
     """
-    <div style='text-align:center; opacity:.9;'>
-        {}:
-        <a href='mailto:info@sinankeskin.com.tr'>info@sinankeskin.com.tr</a>
-        &nbsp;&nbsp;|&nbsp;&nbsp;
-        <a href='https://github.com/sinan-keskin' target='_blank' style='text-decoration:none;'>
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"
-                 style="vertical-align:middle; color:inherit;">
+    <div style='text-align:center; opacity:.9; display:flex; justify-content:center; align-items:center; gap:20px;'>
+        <span style='font-weight:600;'>{label}</span>
+        <a href='mailto:info@sinankeskin.com.tr' target='_blank' style='color:inherit; text-decoration:none;'>
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:middle;">
+                <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
+            </svg>
+        </a>
+        <a href='https://github.com/sinan-keskin' target='_blank' style='color:inherit; text-decoration:none;'>
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:middle;">
                 <path d="M12 .5C5.65.5.5 5.65.5 12a11.5 11.5 0 0 0 7.84 10.93c.57.1.77-.25.77-.55v-2.02c-3.19.69-3.87-1.37-3.87-1.37-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.68 1.24 3.34.95.1-.74.4-1.24.72-1.52-2.55-.29-5.23-1.28-5.23-5.69 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.47.11-3.06 0 0 .96-.31 3.14 1.18a10.9 10.9 0 0 1 5.72 0c2.18-1.49 3.14-1.18 3.14-1.18.62 1.59.23 2.77.11 3.06.74.81 1.18 1.83 1.18 3.09 0 4.42-2.69 5.39-5.25 5.67.41.35.78 1.03.78 2.08v3.08c0 .3.2.65.78.54A11.5 11.5 0 0 0 23.5 12c0-6.35-5.15-11.5-11.5-11.5Z"/>
             </svg>
         </a>
     </div>
-    """.format(T("footer_contact")),
+    """.format(label=T("footer_contact")),
     unsafe_allow_html=True
 )
-
