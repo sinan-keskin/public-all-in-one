@@ -290,7 +290,7 @@ I18N = {
 LANG_FLAGS = {
     "tr": "🇹🇷 Türkçe",
     "az": "🇦🇿 Azərbaycan",
-    "en": "🇬🇧 English",
+    "en": "🇺🇸 English",
     "pt_BR": "🇧🇷 Português (BR)",
     "es": "🇪🇸 Español",
     "ru": "🇷🇺 Русский",
