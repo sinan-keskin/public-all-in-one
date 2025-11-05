@@ -25,7 +25,7 @@ except Exception:
     HAVE_PIL = False
 
 # ================== App Config ==================
-st.set_page_config(page_title="🧰 Multi Tools", page_icon="🧰", layout="centered")
+st.set_page_config(page_title="Multi Tools", page_icon="🧰", layout="centered")
 
 # ================== i18n ==================
 I18N = {
@@ -306,7 +306,6 @@ if "lang" not in st.session_state:
 
 if st.session_state.lang is None:
     st.title("🌍 Select Your Language / Dil Seçin")
-    st.markdown("### Devam etmek için bir dil seçiniz 👇")
 
     cols = st.columns(3)
     i = 0
