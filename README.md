@@ -1,41 +1,93 @@
 # 🧰 Multi Tools (SteamID • QR • Photo Saver)
 
-Üç mini aracı tek bir Streamlit uygulamasında sunar — **sekme sırası**:
-1) `steamid-finder` · 2) `qr-code` · 3) `photo-saver`.  
-Desteklenen diller: **TR / AZ / EN / PT-BR / ES / RU**.
+> 🌍 *9 dilli çoklu araç platformu:* **TR · AZ · EN-US · PT-BR · ES · RU · DE · FR · SA**  
+> 🎯 *Hepsi tek bir Streamlit uygulamasında birleşti!*
 
 ---
 
-## 🇹🇷 Özellikler
-- **SteamID Bulucu**: Profil linki, kullanıcı adı (vanity) veya SteamID64 girin; görünen ad, seviye, avatar/çerçeve bilgilerini çeker.  
-  > *API anahtarı gerekli:* `STEAM_API_KEY`.
-- **QR Kod Üretici**: Girdiğiniz URL için anında QR kodu oluşturur ve indirmenizi sağlar.
-- **Toplu Görsel İndirici**: Birden fazla görsel/link yapıştırın, resimleri çözüp ZIP olarak indirin. Imgur ve meta (`og:image` / `twitter:image`) çözümleri içerir.
+## 💡 Genel Bakış
+Multi Tools, üç mini yardımcı aracı tek sayfada toplar:
+1️⃣ **SteamID Finder**  
+2️⃣ **QR Code Generator**  
+3️⃣ **Photo Saver (Bulk Image Downloader)**  
 
-## 🇦🇿 Xüsusiyyətlər
-- **SteamID Axtarışı**, **QR Yaratma**, **Kütləvi Şəkil Endirmə** — yuxarıdakı kimi.
-
-## 🇬🇧 Features
-- **SteamID Finder**, **QR Generator**, **Bulk Image Downloader** — as above.
-
-## 🇧🇷 Funcionalidades
-- **Localizador de SteamID**, **Gerador de QR**, **Baixar Imagens em Lote** — conforme acima.
-
-## 🇪🇸 Funciones
-- **Buscador de SteamID**, **Generador de QR**, **Descargador Masivo de Imágenes**.
-
-## 🇷🇺 Возможности
-- **Поиск SteamID**, **Генератор QR**, **Массовая загрузка изображений**.
+Hepsi sade, çok dilli, mobil uyumlu bir Streamlit arayüzünde birleşir.  
 
 ---
 
-## 🚀 Kurulum / Setup
+## 🌐 Dil Desteği
+| Bayrak | Dil | Kod |
+|:--:|:--|:--:|
+| 🇹🇷 | Türkçe | `tr` |
+| 🇦🇿 | Azərbaycan | `az` |
+| 🇬🇧 | English (US) | `en` |
+| 🇧🇷 | Português (Brasil) | `pt-br` |
+| 🇪🇸 | Español | `es` |
+| 🇷🇺 | Русский | `ru` |
+| 🇩🇪 | Deutsch | `de` |
+| 🇫🇷 | Français | `fr` |
+| 🇸🇦 | العربية | `sa` |
 
-### 1) Yerel Çalıştırma
+---
+
+## 🧩 Özellikler
+### 🎮 SteamID Finder
+- Profil bağlantısı, kullanıcı adı (vanity) veya SteamID64 girin.  
+- Kullanıcı bilgilerini (isim, seviye, avatar, profil çerçevesi) çeker.  
+- Gereklilik: 🔑 **`STEAM_API_KEY`** ortam değişkeni.
+
+### 📷 QR Code Generator
+- Herhangi bir metin veya URL’den anında QR kodu oluşturur.  
+- ✅ Koyu/açık tema uyumu.  
+- 💾 Tek tıkla indirme.
+
+### 🖼️ Photo Saver (Bulk)
+- Birden fazla görsel bağlantısını yapıştırın → ZIP olarak indirin.  
+- 🔍 Imgur, meta (`og:image` / `twitter:image`) desteği.  
+- 💡 Hata yönetimi ve ilerleme çubuğu içerir.
+
+---
+
+## ⚙️ Kurulum / Installation
+
+### 🔧 Yerel Çalıştırma
 ```bash
+git clone https://github.com/<kullanıcı_adın>/multi-tools.git
+cd multi-tools
 python -m venv .venv
 source .venv/bin/activate   # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 # (İsteğe bağlı) Steam için:
 export STEAM_API_KEY=your_key_here  # Windows PowerShell: $env:STEAM_API_KEY="your_key_here"
 streamlit run app.py
+```
+
+### 🐳 Docker (opsiyonel)
+```
+docker build -t multi-tools .
+docker run -p 8501:8501 -e STEAM_API_KEY=your_key_here multi-tools
+```
+
+### 🧠 Teknolojiler
+| Araç         | Teknoloji                       |
+| ------------ | ------------------------------- |
+| UI Framework | 🧱 Streamlit                    |
+| QR Engine    | 🌀 qrcode / Pillow              |
+| Steam API    | 🎮 Steam Web API                |
+| Downloader   | 🕸️ requests / aiohttp          |
+| Çok Dillilik | 🌐 gettext + JSON dil dosyaları |
+
+### ✨ Görseller
+| SteamID Finder | QR Generator | Photo Saver |
+| :------------: | :----------: | :---------: |
+|       🎮       |      🔳      |     🖼️     |
+
+### 📜 Lisans
+Bu proje [MIT Lisansı](LICENSE) altında yayımlanmıştır.
+🧑‍💻 Katkıda bulunmaktan çekinme! Pull request’ler memnuniyetle karşılanır.
+
+💻 [GitHub Issues](https://github.com/sinan-keskin/public-all-in-one/issues)   
+🌐 [Website](https://all-in-public.streamlit.app/)
+
+⭐ Proje hoşuna gittiyse bir yıldız bırak!
+Senin desteğin açık kaynak dünyasında büyük fark yaratır 🚀
