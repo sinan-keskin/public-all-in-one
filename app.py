@@ -585,7 +585,7 @@ def copy_row(label: str, value: str, copyable: bool, key: str):
             padding:7px 10px; border-radius:6px; background:var(--code-bg); border:1px solid var(--code-border); }}
   .copy-btn {{ border:none; background:transparent; cursor:pointer; display:inline-flex; align-items:center; margin-left:6px; }}
   .copy-btn svg {{ width:18px; height:18px; fill:#ff4d4f; opacity:.9; transition: transform .15s ease, fill .15s ease; }}
-  .copy-btn:hover svg {{ transform: scale(1.1); fill:#d9363e; }}
+  .copy-btn:hover svg {{ transform: scale(1.1); fill:#ffffff; }}
 </style>
 </head>
 <body>
