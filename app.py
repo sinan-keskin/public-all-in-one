@@ -419,12 +419,7 @@ if "lang" not in st.session_state:
 
 if st.session_state.lang is None:
     st.title("")
-    st.markdown("""<style>
-/* Başlıkların yanındaki anchor (zincir) ikonunu gizle */
-[data-testid="stHeading"] a {
-  display: none !important;
-}
-</style>### 🌍 Select Your Language / Dil Seçin""")
+    st.markdown("🌍 Select Your Language / Dil Seçin")
     cols = st.columns(3)
     i = 0
     for code, label in LANG_FLAGS.items():
