@@ -5,6 +5,7 @@ from urllib.parse import urlparse
 
 import streamlit as st
 import streamlit.components.v1 as components
+st.markdown("<style>[data-testid='stHeading'] a {display: none !important;}</style>", unsafe_allow_html=True)
 
 # ------- Optional deps (Photo Saver) -------
 try:
