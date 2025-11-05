@@ -29,6 +29,34 @@ except Exception:
 # ================== App Config ==================
 st.set_page_config(page_title="Multi Tools", page_icon="🧰", layout="centered")
 
+st.markdown("""
+<style>
+/* input ve buton boyutlarını hizala */
+.stTextInput, .stTextArea, .stButton>button, .stDownloadButton>button {
+    width: 100% !important;
+}
+
+/* buton stilleri */
+.stButton>button, .stDownloadButton>button {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    text-align: center;
+    border: 1px solid var(--divider-color, rgba(127,127,127,.35));
+    border-radius: 6px;
+    padding: 0.6rem 1rem;
+    transition: all .15s ease;
+}
+
+/* hover efekti */
+.stButton>button:hover, .stDownloadButton>button:hover {
+    transform: translateY(-1px);
+    background: var(--secondary-background-color, rgba(127,127,127,.15));
+}
+</style>
+""", unsafe_allow_html=True)
+
 # ================== i18n ==================
 I18N = {
     "tr": {
