@@ -28,4 +28,4 @@ SOFTWARE.
 - `cloudscraper` mevcut değilse uygulama yine çalışır, fakat bazı sayfalardan görsel çözme kapasitesi sınırlı olabilir.
 - İstersen gerekli yerleri `.env` ile beslemek için `python-dotenv` hazır (örnek: `load_dotenv()` çağırabilirsiniz).
 
-Hazır! Bu 3 uygulamayı tek repoda, belirtilen **tab sırası** ve **6 dil** desteğiyle kullanabilirsiniz.
+Hazır! Bu 3 uygulamayı tek repoda, belirtilen **tab sırası** ve **9 dil** desteğiyle kullanabilirsiniz.
