@@ -25,7 +25,7 @@ except Exception:
     HAVE_PIL = False
 
 # ================== App Config ==================
-st.set_page_config(page_title="Multi Tools", page_icon="🧰", layout="centered", anchor=False)
+st.set_page_config(page_title="Multi Tools", page_icon="🧰", layout="centered")
 
 # ================== i18n ==================
 I18N = {
