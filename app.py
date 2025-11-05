@@ -389,7 +389,7 @@ with st.sidebar:
     </head>
     <body>
       <div class="footer">
-        <div class="footer-label">{T("footer_contact")}</div>
+        <div class="footer-label">{T("footer_contact")}</div></br>
         <div class="icon-row">
 
          | <a class="mail" href="mailto:info@sinankeskin.com.tr" target="_blank" title="E-posta">
