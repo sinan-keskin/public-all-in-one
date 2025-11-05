@@ -746,8 +746,6 @@ with tab3:
                         unsafe_allow_html=True)
 
 # ---------- Footer (global) ----------
-import streamlit.components.v1 as components  # en üstte varsa tekrar eklemeyin
-
 label = T("footer_contact")
 
 footer_html = """
