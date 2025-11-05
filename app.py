@@ -28,33 +28,6 @@ except Exception:
 
 # ================== App Config ==================
 st.set_page_config(page_title="Multi Tools", page_icon="🧰", layout="centered")
-st.markdown("""
-<style>
-/* input ve buton boyutlarını hizala */
-.stTextInput, .stTextArea, .stButton > button, .stDownloadButton > button {
-    width: 100% !important;
-}
-
-/* buton metnini ortala ve uyumlu görünüm ver */
-.stButton > button, .stDownloadButton > button {
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-    font-weight: 600;
-    text-align: center;
-    border: 1px solid var(--divider-color, rgba(127,127,127,.35));
-    border-radius: 6px;
-    padding: 0.65rem 1rem;
-    transition: all .15s ease;
-}
-
-/* hoş bir hover */
-.stButton > button:hover, .stDownloadButton > button:hover {
-    transform: translateY(-1px);
-    background: var(--secondary-background-color, rgba(127,127,127,.15));
-}
-</style>
-""", unsafe_allow_html=True)
 
 # ================== i18n ==================
 I18N = {
@@ -896,7 +869,7 @@ with tab1:
 """, unsafe_allow_html=True)
 
     s_inp = st.text_input(T("steam_input"), placeholder=T("steam_ph"))
-    if st.button(T("steam_btn")) and s_inp.strip():
+    if st.button(T("steam_btn"), use_container_width=True) and s_inp.strip():
         try:
             sid64 = resolve_input_to_steamid64(s_inp, STEAM_API_KEY)
             st.success(T("steam_found"))
@@ -944,7 +917,7 @@ with tab2:
     st.caption(T("qr_caption"))
 
     url = st.text_input(T("qr_input"), placeholder=T("qr_ph"))
-    if st.button(T("qr_btn")):
+    if st.button(T("qr_btn"), use_container_width=True):
         if not url:
             st.warning(T("qr_warn"))
         else:
@@ -963,6 +936,7 @@ with tab2:
                     data=img_bytes,
                     file_name="qr.png",
                     mime="image/png",
+                    use_container_width=True
                 )
             except Exception as e:
                 st.error(T("qr_error") + str(e))
@@ -976,7 +950,7 @@ with tab3:
                               placeholder="https://i.imgur.com/xxxx\nhttps://example.com/page-with-image")
     urls = [u.strip() for u in urls_input.splitlines() if u.strip()]
 
-    if st.button(T("ps_btn")):
+    if st.button(T("ps_btn"), use_container_width=True):
         if not urls:
             st.error(T("ps_need"))
         else:
@@ -988,7 +962,8 @@ with tab3:
                 label=T("ps_dl"),
                 data=zip_bytes,
                 file_name=filename,
-                mime="application/zip"
+                mime="application/zip",
+                use_container_width=True
             )
 
     st.divider()
