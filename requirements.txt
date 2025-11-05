@@ -1,0 +1,7 @@
+streamlit>=1.37
+requests>=2.32
+beautifulsoup4
+lxml
+cloudscraper
+pillow
+python-dotenv>=1.0
