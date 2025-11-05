@@ -792,7 +792,7 @@ footer_html = f"""
     <span class="label">{label}</span>
 
     <!-- Mail -->
-    | <a class="icon-link mail" href="mailto:info@sinankeskin.com.tr" target="_blank" rel="noopener" aria-label="Email">
+    | | <a class="icon-link mail" href="mailto:info@sinankeskin.com.tr" target="_blank" rel="noopener" aria-label="Email">
       <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg> 
     </a> |
 
@@ -809,7 +809,7 @@ footer_html = f"""
     <!-- Telegram -->
     | <a class="icon-link telegram" href="https://t.me/sinankeeeee" target="_blank" rel="noopener" aria-label="Telegram">
       <svg viewBox="0 0 24 24"><path d="M9.04 15.81 8.8 19.34c.47 0 .68-.2.93-.44l2.24-2.13 4.65 3.38c.85.47 1.47.22 1.7-.79l3.09-14.38c.28-1.3-.46-1.8-1.3-1.49L2.4 9.67c-1.27.49-1.26 1.18-.22 1.49l4.47 1.4 10.38-6.56c.49-.31.94-.14.57.2L9.04 15.81z"/></svg>
-    </a> |
+    </a> | |
   </div>
 
   <script>
