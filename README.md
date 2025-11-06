@@ -83,6 +83,12 @@ docker run -p 8501:8501 -e STEAM_API_KEY=your_key_here multi-tools
 | :------------: | :----------: | :---------: |
 |       🎮       |      🔳      |     🖼️     |
 
+![Giriş](https://prnt.sc/LmgmZjSdyyIA)
+![SteamID64 Finder](https://prnt.sc/Z7u57FyHBwHT)
+![QR Oluşturucu](https://prnt.sc/jnLnUP7N0W7y)
+![Photo Saver](https://prnt.sc/xEJFxrl4NsDC)
+
+
 ### 📜 Lisans
 Bu proje [MIT Lisansı](LICENSE) altında yayımlanmıştır.
 🧑‍💻 Katkıda bulunmaktan çekinme! Pull request’ler memnuniyetle karşılanır.
