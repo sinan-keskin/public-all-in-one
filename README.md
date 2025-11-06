@@ -83,10 +83,13 @@ docker run -p 8501:8501 -e STEAM_API_KEY=your_key_here multi-tools
 | :------------: | :----------: | :---------: |
 |       🎮       |      🔳      |     🖼️     |
 
-![Giriş](https://prnt.sc/LmgmZjSdyyIA)
-![SteamID64 Finder](https://prnt.sc/Z7u57FyHBwHT)
-![QR Oluşturucu](https://prnt.sc/jnLnUP7N0W7y)
-![Photo Saver](https://prnt.sc/xEJFxrl4NsDC)
+![Giriş](https://image.prntscr.com/image/3AQ5lPAhRtiG4FiWzhL6xw.jpeg)
+
+![SteamID64 Finder](https://image.prntscr.com/image/432u0iRsSZehLF02oyZtpw.jpeg)
+
+![QR Oluşturucu](https://image.prntscr.com/image/w3coQMngR6es3n7CkOXG3g.jpeg)
+
+![Photo Saver](https://image.prntscr.com/image/jHWjGdv7TSmYOzTyebaU8w.jpeg)
 
 
 ### 📜 Lisans
