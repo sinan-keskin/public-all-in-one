@@ -67,7 +67,7 @@ streamlit run app.py
 ```
 
 ### 🐳 Docker (optional)
-```
+```docker
 docker build -t multi-tools .
 docker run -p 8501:8501 -e STEAM_API_KEY=your_key_here multi-tools
 ```
