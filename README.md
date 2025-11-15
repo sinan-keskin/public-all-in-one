@@ -1,84 +1,87 @@
 # 🧰 Multi Tools (SteamID • QR • Photo Saver)
 
-> 🌍 *9 dilli çoklu araç platformu:* **TR · AZ · EN-US · PT-BR · ES · RU · DE · FR · SA**  
-> 🎯 *Hepsi tek bir Streamlit uygulamasında birleşti!*
+> 🌍 *Multi-language tool platform:* **TR · AZ · EN-US · PT-BR · ES · RU · DE · FR · SA**  
+> 🎯 *All combined into a single Streamlit application!*
 
 ---
 
-## 💡 Genel Bakış
-Multi Tools, üç mini yardımcı aracı tek sayfada toplar:
+## 💡 Overview
+
+Multi Tools brings together three mini utilities in one interface:
 
 1️⃣ **SteamID Finder**  
 2️⃣ **QR Code Generator**  
 3️⃣ **Photo Saver (Bulk Image Downloader)**  
 
-Hepsi sade, çok dilli, mobil uyumlu bir Streamlit arayüzünde birleşir.  
+Everything is unified in a clean, multilingual, mobile-friendly Streamlit UI.
 
 ---
 
-## 🌐 Dil Desteği
-| Bayrak | Dil | Kod |
+## 🌐 Language Support
+
+| Flag | Language | Code |
 |:--:|:--|:--:|
-| 🇹🇷 | Türkçe | `tr` |
-| 🇦🇿 | Azərbaycan | `az` |
+| 🇹🇷 | Turkish | `tr` |
+| 🇦🇿 | Azerbaijani | `az` |
 | 🇬🇧 | English (US) | `en` |
-| 🇧🇷 | Português (Brasil) | `pt-br` |
-| 🇪🇸 | Español | `es` |
-| 🇷🇺 | Русский | `ru` |
-| 🇩🇪 | Deutsch | `de` |
-| 🇫🇷 | Français | `fr` |
-| 🇸🇦 | العربية | `sa` |
+| 🇧🇷 | Portuguese (Brazil) | `pt-br` |
+| 🇪🇸 | Spanish | `es` |
+| 🇷🇺 | Russian | `ru` |
+| 🇩🇪 | German | `de` |
+| 🇫🇷 | French | `fr` |
+| 🇸🇦 | Arabic | `sa` |
 
 ---
 
-## 🧩 Özellikler
+## 🧩 Features
+
 ### 🎮 SteamID Finder
-- Profil bağlantısı, kullanıcı adı (vanity) veya SteamID64 girin.  
-- Kullanıcı bilgilerini (isim, seviye, avatar, profil çerçevesi) çeker.  
-- Gereklilik: 🔑 **`STEAM_API_KEY`** ortam değişkeni.
+- Enter a profile link, Steam vanity name, or SteamID64.  
+- Fetches user data (name, level, avatar, profile frame).  
+- Requirement: 🔑 **`STEAM_API_KEY`** environment variable.
 
 ### 📷 QR Code Generator
-- Herhangi bir metin veya URL’den anında QR kodu oluşturur.  
-- ✅ Koyu/açık tema uyumu.  
-- 💾 Tek tıkla indirme.
+- Create instant QR codes from any text or URL.  
+- ✅ Dark/light theme compatible.  
+- 💾 One-click download.
 
 ### 🖼️ Photo Saver (Bulk)
-- Birden fazla görsel bağlantısını yapıştırın → ZIP olarak indirin.  
-- 🔍 Imgur, meta (`og:image` / `twitter:image`) desteği.  
-- 💡 Hata yönetimi ve ilerleme çubuğu içerir.
+- Paste multiple image URLs → download them as a ZIP.  
+- 🔍 Supports Imgur, meta (`og:image` / `twitter:image`) links.  
+- 💡 Includes error handling and a progress bar.
 
 ---
 
-## ⚙️ Kurulum / Installation
+## ⚙️ Installation
 
-### 🔧 Yerel Çalıştırma
+### 🔧 Run Locally
 ```bash
-git clone https://github.com/<kullanıcı_adın>/multi-tools.git
+git clone https://github.com/<your_username>/multi-tools.git
 cd multi-tools
 python -m venv .venv
 source .venv/bin/activate   # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
-# (İsteğe bağlı) Steam için:
+# (Optional) For Steam:
 export STEAM_API_KEY=your_key_here  # Windows PowerShell: $env:STEAM_API_KEY="your_key_here"
 streamlit run app.py
 ```
 
-### 🐳 Docker (opsiyonel)
+### 🐳 Docker (optional)
 ```
 docker build -t multi-tools .
 docker run -p 8501:8501 -e STEAM_API_KEY=your_key_here multi-tools
 ```
 
-### 🧠 Teknolojiler
-| Araç         | Teknoloji                       |
+### 🧠 Technologies
+| Component    | Technology                      |
 | ------------ | ------------------------------- |
 | UI Framework | 🧱 Streamlit                    |
 | QR Engine    | 🌀 qrcode / Pillow              |
 | Steam API    | 🎮 Steam Web API                |
 | Downloader   | 🕸️ requests / aiohttp          |
-| Çok Dillilik | 🌐 gettext + JSON dil dosyaları |
+| i18n (Locale) | 🌐 gettext + JSON language files |
 
-### ✨ Görseller
+### ✨ Screenshots
 | SteamID Finder | QR Generator | Photo Saver |
 | :------------: | :----------: | :---------: |
 |       🎮       |      🔳      |     🖼️     |
@@ -92,12 +95,12 @@ docker run -p 8501:8501 -e STEAM_API_KEY=your_key_here multi-tools
 ![Photo Saver](https://image.prntscr.com/image/jHWjGdv7TSmYOzTyebaU8w.jpeg)
 
 
-### 📜 Lisans
-Bu proje [MIT Lisansı](LICENSE) altında yayımlanmıştır.
-🧑‍💻 Katkıda bulunmaktan çekinme! Pull request’ler memnuniyetle karşılanır.
+### 📜 License
+This project is released under the [MIT Lisansı](LICENSE).
+🧑‍💻 Contributions are welcome — pull requests are appreciated!
 
 💻 [GitHub Issues](https://github.com/sinan-keskin/public-all-in-one/issues)   
 🌐 [Website](https://all-in-public.streamlit.app/)
 
-⭐ Proje hoşuna gittiyse bir yıldız bırak!
-Senin desteğin açık kaynak dünyasında büyük fark yaratır 🚀
+⭐ If you like this project, consider leaving a star!
+Your support makes a huge difference in the open-source world 🚀
